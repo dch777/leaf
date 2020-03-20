@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/dchanana/Projects/leaf/src/lexer.cpp
+lexer.h
+/home/dchanana/Projects/leaf/src/lexer.h
+cctype
+-
+iostream
+-
+string
+-
+
+/home/dchanana/Projects/leaf/src/lexer.h
+stack
+-
+string
+-
+
