@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/dchanana/Projects/leaf/src/lexer.cpp" "/home/dchanana/Projects/leaf/build/CMakeFiles/lcc.dir/src/lexer.cpp.o"
+  "/home/dchanana/Projects/leaf/src/tokenizer.cpp" "/home/dchanana/Projects/leaf/build/CMakeFiles/lcc.dir/src/tokenizer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

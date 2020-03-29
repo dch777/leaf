@@ -1,0 +1,50 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+Lexer	/home/dchanana/Projects/leaf/src/lexer.h	/^class Lexer$/;"	c
+Lexer::TokenList	/home/dchanana/Projects/leaf/src/lexer.h	/^		std::stack<Token> TokenList;$/;"	m	class:Lexer	typeref:typename:std::stack<Token>	access:public
+Lexer::tokenize	/home/dchanana/Projects/leaf/src/lexer.h	/^		void tokenize(std::string[]);$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:(std::string[])
+Lexer::tokenize	/home/dchanana/Projects/leaf/src/tokenizer.cpp	/^void Lexer::tokenize(std::string input[])$/;"	f	class:Lexer	typeref:typename:void	signature:(std::string input[])
+Token	/home/dchanana/Projects/leaf/src/token.h	/^struct Token$/;"	s
+Token	/home/dchanana/Projects/leaf/src/tokenizer.h	/^struct Token$/;"	s
+Token::data	/home/dchanana/Projects/leaf/src/token.h	/^	std::string data;$/;"	m	struct:Token	typeref:typename:std::string	access:public
+Token::end_pos	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	size_t end_pos;$/;"	m	struct:Token	typeref:typename:size_t	access:public
+Token::line	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	size_t line;$/;"	m	struct:Token	typeref:typename:size_t	access:public
+Token::start_pos	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	size_t start_pos;$/;"	m	struct:Token	typeref:typename:size_t	access:public
+Token::type	/home/dchanana/Projects/leaf/src/token.h	/^	TokenType type;$/;"	m	struct:Token	typeref:typename:TokenType	access:public
+Token::type	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	TokenType type;$/;"	m	struct:Token	typeref:typename:TokenType	access:public
+TokenCloseExpressionBlock	/home/dchanana/Projects/leaf/src/token.h	/^	TokenCloseExpressionBlock,$/;"	e	enum:TokenType	access:public
+TokenCloseParameterBlock	/home/dchanana/Projects/leaf/src/token.h	/^	TokenCloseParameterBlock,$/;"	e	enum:TokenType	access:public
+TokenFloatLiteral	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	TokenFloatLiteral,$/;"	e	enum:TokenType	access:public
+TokenIdentifier	/home/dchanana/Projects/leaf/src/token.h	/^	TokenIdentifier,$/;"	e	enum:TokenType	access:public
+TokenIdentifier	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	TokenIdentifier,$/;"	e	enum:TokenType	access:public
+TokenIntegerLiteral	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	TokenIntegerLiteral,$/;"	e	enum:TokenType	access:public
+TokenList	/home/dchanana/Projects/leaf/src/lexer.h	/^		std::stack<Token> TokenList;$/;"	m	class:Lexer	typeref:typename:std::stack<Token>	access:public
+TokenNumberLiteral	/home/dchanana/Projects/leaf/src/token.h	/^	TokenNumberLiteral,$/;"	e	enum:TokenType	access:public
+TokenOpenExpressionBlock	/home/dchanana/Projects/leaf/src/token.h	/^	TokenOpenExpressionBlock,$/;"	e	enum:TokenType	access:public
+TokenOpenParameterBlock	/home/dchanana/Projects/leaf/src/token.h	/^	TokenOpenParameterBlock,$/;"	e	enum:TokenType	access:public
+TokenQuote	/home/dchanana/Projects/leaf/src/token.h	/^	TokenQuote,$/;"	e	enum:TokenType	access:public
+TokenStringLiteral	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	TokenStringLiteral,$/;"	e	enum:TokenType	access:public
+TokenSymbol	/home/dchanana/Projects/leaf/src/token.h	/^	TokenSymbol,$/;"	e	enum:TokenType	access:public
+TokenSymbol	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	TokenSymbol,$/;"	e	enum:TokenType	access:public
+TokenTerminateExpression	/home/dchanana/Projects/leaf/src/token.h	/^	TokenTerminateExpression,$/;"	e	enum:TokenType	access:public
+TokenType	/home/dchanana/Projects/leaf/src/token.h	/^enum TokenType$/;"	g
+TokenType	/home/dchanana/Projects/leaf/src/tokenizer.h	/^enum TokenType$/;"	g
+TokenWhitespace	/home/dchanana/Projects/leaf/src/token.h	/^	TokenWhitespace,$/;"	e	enum:TokenType	access:public
+TokenWhitespace	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	TokenWhitespace,$/;"	e	enum:TokenType	access:public
+createToken	/home/dchanana/Projects/leaf/src/token.h	/^Token createToken(TokenType, std::string);$/;"	p	typeref:typename:Token	signature:(TokenType,std::string)
+createToken	/home/dchanana/Projects/leaf/src/tokenizer.cpp	/^Token createToken(TokenType type, std::string data)$/;"	f	typeref:typename:Token	signature:(TokenType type,std::string data)
+data	/home/dchanana/Projects/leaf/src/token.h	/^	std::string data;$/;"	m	struct:Token	typeref:typename:std::string	access:public
+end_pos	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	size_t end_pos;$/;"	m	struct:Token	typeref:typename:size_t	access:public
+line	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	size_t line;$/;"	m	struct:Token	typeref:typename:size_t	access:public
+main	/home/dchanana/Projects/leaf/src/tokenizer.cpp	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int	signature:(int argc,char * argv[])
+start_pos	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	size_t start_pos;$/;"	m	struct:Token	typeref:typename:size_t	access:public
+tokenize	/home/dchanana/Projects/leaf/src/lexer.h	/^		void tokenize(std::string[]);$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:(std::string[])
+tokenize	/home/dchanana/Projects/leaf/src/tokenizer.cpp	/^void Lexer::tokenize(std::string input[])$/;"	f	class:Lexer	typeref:typename:void	signature:(std::string input[])
+type	/home/dchanana/Projects/leaf/src/token.h	/^	TokenType type;$/;"	m	struct:Token	typeref:typename:TokenType	access:public
+type	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	TokenType type;$/;"	m	struct:Token	typeref:typename:TokenType	access:public

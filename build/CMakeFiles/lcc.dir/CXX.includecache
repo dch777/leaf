@@ -6,18 +6,34 @@
 
 #IncludeRegexTransform: 
 
-/home/dchanana/Projects/leaf/src/lexer.cpp
-lexer.h
-/home/dchanana/Projects/leaf/src/lexer.h
-cctype
+/home/dchanana/Projects/leaf/src/AST.h
+vector
 -
-iostream
+memory
+-
+
+/home/dchanana/Projects/leaf/src/lexer.h
+string
+-
+stack
+-
+token.h
+/home/dchanana/Projects/leaf/src/token.h
+
+/home/dchanana/Projects/leaf/src/token.h
+stack
 -
 string
 -
 
+/home/dchanana/Projects/leaf/src/tokenizer.cpp
+lexer.h
 /home/dchanana/Projects/leaf/src/lexer.h
-stack
+AST.h
+/home/dchanana/Projects/leaf/src/AST.h
+cctype
+-
+iostream
 -
 string
 -
