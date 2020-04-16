@@ -40,6 +40,9 @@ default_target: all
 .SUFFIXES: .hpux_make_needs_suffix_list
 
 
+# Command-line flag to silence nested $(MAKE).
+$(VERBOSE)MAKESILENT = -s
+
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -98,13 +101,13 @@ edit_cache/fast: edit_cache
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dchanana/Projects/leaf/build/CMakeFiles /home/dchanana/Projects/leaf/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dchanana/Projects/leaf/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
 # The main clean target
@@ -114,12 +117,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -132,13 +135,40 @@ depend:
 
 # Build rule for target.
 lcc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lcc
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lcc
 .PHONY : lcc
 
 # fast build rule for target.
 lcc/fast:
-	$(MAKE) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/build
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/build
 .PHONY : lcc/fast
+
+src/constructAST.o: src/constructAST.cpp.o
+
+.PHONY : src/constructAST.o
+
+# target to build an object file
+src/constructAST.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/constructAST.cpp.o
+.PHONY : src/constructAST.cpp.o
+
+src/constructAST.i: src/constructAST.cpp.i
+
+.PHONY : src/constructAST.i
+
+# target to preprocess a source file
+src/constructAST.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/constructAST.cpp.i
+.PHONY : src/constructAST.cpp.i
+
+src/constructAST.s: src/constructAST.cpp.s
+
+.PHONY : src/constructAST.s
+
+# target to generate assembly for a file
+src/constructAST.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/constructAST.cpp.s
+.PHONY : src/constructAST.cpp.s
 
 src/tokenizer.o: src/tokenizer.cpp.o
 
@@ -146,7 +176,7 @@ src/tokenizer.o: src/tokenizer.cpp.o
 
 # target to build an object file
 src/tokenizer.cpp.o:
-	$(MAKE) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/tokenizer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/tokenizer.cpp.o
 .PHONY : src/tokenizer.cpp.o
 
 src/tokenizer.i: src/tokenizer.cpp.i
@@ -155,7 +185,7 @@ src/tokenizer.i: src/tokenizer.cpp.i
 
 # target to preprocess a source file
 src/tokenizer.cpp.i:
-	$(MAKE) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/tokenizer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/tokenizer.cpp.i
 .PHONY : src/tokenizer.cpp.i
 
 src/tokenizer.s: src/tokenizer.cpp.s
@@ -164,7 +194,7 @@ src/tokenizer.s: src/tokenizer.cpp.s
 
 # target to generate assembly for a file
 src/tokenizer.cpp.s:
-	$(MAKE) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/tokenizer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/tokenizer.cpp.s
 .PHONY : src/tokenizer.cpp.s
 
 # Help Target
@@ -176,6 +206,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lcc"
+	@echo "... src/constructAST.o"
+	@echo "... src/constructAST.i"
+	@echo "... src/constructAST.s"
 	@echo "... src/tokenizer.o"
 	@echo "... src/tokenizer.i"
 	@echo "... src/tokenizer.s"

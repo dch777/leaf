@@ -3,14 +3,18 @@
 #include <memory>
 #include <vector>
 
+class ASTNode;
+typedef std::unique_ptr<ASTNode> NodePtr;
+
 class ASTNode
 {
 	public:
 		virtual ~ASTNode() {}
-		void addChild(std::unique_ptr<ASTNode> child) {children.push_back(std::move(child));}
-		void overrideChildren(std::vector<std::unique_ptr<ASTNode>> newChildren) {children = std::move(newChildren);}
+		void addChild(NodePtr child) {children.push_back(std::move(child));}
+		void setChildren(std::vector<NodePtr> newChildren) {children = std::move(newChildren);}
+		std::vector<NodePtr> getChildren() {return children;}
 	protected:
-		std::vector<std::unique_ptr<ASTNode>> children;
+		std::vector<NodePtr> children;
 };
 
 class ExprASTNode : public ASTNode
@@ -37,7 +41,7 @@ class VariableExprASTNode : public ExprASTNode
 {
 		std::string name;
 	public:
-		VariableExprASTNode(std::string name, std::unique_ptr<ExprASTNode> value) : name(name) {children.push_back(std::move(value));}
+		VariableExprASTNode(std::string name) : name(name) {}
 };
 
 class OperationExprASTNode : public ExprASTNode
@@ -49,29 +53,23 @@ class OperationExprASTNode : public ExprASTNode
 
 class CallExprASTNode : public ExprASTNode
 {
-		std::string func;
-	public:
-		CallExprASTNode(std::string func, std::vector<std::unique_ptr<ASTNode>> args) : func(func) {overrideChildren(std::move(args));};
-};
-
-class ExprBlockASTNode : ASTNode {};
-
-class VariableDeclASTNode : ASTNode
-{
 		std::string name;
 	public:
-
+		CallExprASTNode(std::string name, std::vector<NodePtr> args) : name(name) {setChildren(std::move(args));};
 };
 
 class VariableDefASTNode : ASTNode
 {
+		std::string name;
 	public:
-		VariableDefASTNode(std::unique_ptr<ExprASTNode> value) {children.push_back(std::move(value));}
+		VariableDefASTNode(std::string name, std::unique_ptr<ExprASTNode> value) : name(name) {children.push_back(std::move(value));}
 };
 
-class PrototypeASTNode : ASTNode
+class FunctionDefASTNode : ASTNode
 {
 		std::string name;
 	public:
-
+		FunctionDefASTNode(std::string name, std::vector<NodePtr> operations) : name(name) {setChildren(std::move(operations));}
 };
+
+

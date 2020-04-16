@@ -36,6 +36,9 @@ default_target: all
 .SUFFIXES: .hpux_make_needs_suffix_list
 
 
+# Command-line flag to silence nested $(MAKE).
+$(VERBOSE)MAKESILENT = -s
+
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -89,15 +92,15 @@ clean: CMakeFiles/lcc.dir/clean
 
 # All Build rule for target.
 CMakeFiles/lcc.dir/all:
-	$(MAKE) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/depend
-	$(MAKE) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dchanana/Projects/leaf/build/CMakeFiles --progress-num=1,2 "Built target lcc"
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dchanana/Projects/leaf/build/CMakeFiles --progress-num=1,2,3 "Built target lcc"
 .PHONY : CMakeFiles/lcc.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/lcc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dchanana/Projects/leaf/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/lcc.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dchanana/Projects/leaf/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/lcc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dchanana/Projects/leaf/build/CMakeFiles 0
 .PHONY : CMakeFiles/lcc.dir/rule
 
@@ -108,7 +111,7 @@ lcc: CMakeFiles/lcc.dir/rule
 
 # clean rule for target.
 CMakeFiles/lcc.dir/clean:
-	$(MAKE) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/clean
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/clean
 .PHONY : CMakeFiles/lcc.dir/clean
 
 #=============================================================================

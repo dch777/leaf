@@ -7,18 +7,26 @@
 #IncludeRegexTransform: 
 
 /home/dchanana/Projects/leaf/src/AST.h
-vector
--
 memory
 -
+vector
+-
+
+/home/dchanana/Projects/leaf/src/constructAST.cpp
+AST.h
+/home/dchanana/Projects/leaf/src/AST.h
 
 /home/dchanana/Projects/leaf/src/lexer.h
+memory
+-
 string
 -
 stack
 -
 token.h
 /home/dchanana/Projects/leaf/src/token.h
+AST.h
+/home/dchanana/Projects/leaf/src/AST.h
 
 /home/dchanana/Projects/leaf/src/token.h
 stack

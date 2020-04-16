@@ -65,6 +65,11 @@ Token createToken(TokenType type, std::string data)
 	return tok;
 }
 
+void Lexer::constructAST()
+{
+	
+}
+
 int main(int argc, char *argv[])
 {
 	ASTNode ast;

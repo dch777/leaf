@@ -6,10 +6,41 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+ASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^class ASTNode$/;"	c
+ASTNode::addChild	/home/dchanana/Projects/leaf/src/AST.h	/^		void addChild(std::unique_ptr<ASTNode> child) {children.push_back(std::move(child));}$/;"	f	class:ASTNode	typeref:typename:void	access:public	signature:(std::unique_ptr<ASTNode> child)
+ASTNode::children	/home/dchanana/Projects/leaf/src/AST.h	/^		std::vector<std::unique_ptr<ASTNode>> children;$/;"	m	class:ASTNode	typeref:typename:std::vector<std::unique_ptr<ASTNode>>	access:protected
+ASTNode::setChildren	/home/dchanana/Projects/leaf/src/AST.h	/^		void setChildren(std::vector<std::unique_ptr<ASTNode>> newChildren) {children = std::move(newC/;"	f	class:ASTNode	typeref:typename:void	access:public	signature:(std::vector<std::unique_ptr<ASTNode>> newChildren)
+ASTNode::~ASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		virtual ~ASTNode() {}$/;"	f	class:ASTNode	access:public	signature:()
+CallExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		CallExprASTNode(std::string name, std::vector<std::unique_ptr<ASTNode>> args) : name(name) {se/;"	f	class:CallExprASTNode	access:public	signature:(std::string name,std::vector<std::unique_ptr<ASTNode>> args)
+CallExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^class CallExprASTNode : public ExprASTNode$/;"	c	inherits:ExprASTNode
+CallExprASTNode::CallExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		CallExprASTNode(std::string name, std::vector<std::unique_ptr<ASTNode>> args) : name(name) {se/;"	f	class:CallExprASTNode	access:public	signature:(std::string name,std::vector<std::unique_ptr<ASTNode>> args)
+CallExprASTNode::name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string name;$/;"	m	class:CallExprASTNode	typeref:typename:std::string	access:private
+ExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^class ExprASTNode : public ASTNode$/;"	c	inherits:ASTNode
+ExprASTNode::~ExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		virtual ~ExprASTNode() {}$/;"	f	class:ExprASTNode	access:public	signature:()
+FunctionDefASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		FunctionDefASTNode(std::string name, std::vector<std::unique_ptr<ASTNode>> operations) : name(/;"	f	class:FunctionDefASTNode	access:public	signature:(std::string name,std::vector<std::unique_ptr<ASTNode>> operations)
+FunctionDefASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^class FunctionDefASTNode : ASTNode$/;"	c	inherits:ASTNode
+FunctionDefASTNode::FunctionDefASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		FunctionDefASTNode(std::string name, std::vector<std::unique_ptr<ASTNode>> operations) : name(/;"	f	class:FunctionDefASTNode	access:public	signature:(std::string name,std::vector<std::unique_ptr<ASTNode>> operations)
+FunctionDefASTNode::name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string name;$/;"	m	class:FunctionDefASTNode	typeref:typename:std::string	access:private
+Lexer	/home/dchanana/Projects/leaf/src/lexer.h	/^		Lexer(std::string file) {}$/;"	f	class:Lexer	access:public	signature:(std::string file)
 Lexer	/home/dchanana/Projects/leaf/src/lexer.h	/^class Lexer$/;"	c
+Lexer::Lexer	/home/dchanana/Projects/leaf/src/lexer.h	/^		Lexer(std::string file) {}$/;"	f	class:Lexer	access:public	signature:(std::string file)
 Lexer::TokenList	/home/dchanana/Projects/leaf/src/lexer.h	/^		std::stack<Token> TokenList;$/;"	m	class:Lexer	typeref:typename:std::stack<Token>	access:public
+Lexer::constructAST	/home/dchanana/Projects/leaf/src/lexer.h	/^		void constructAST();$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:()
+Lexer::root	/home/dchanana/Projects/leaf/src/lexer.h	/^		std::unique_ptr<ASTNode> root;$/;"	m	class:Lexer	typeref:typename:std::unique_ptr<ASTNode>	access:public
 Lexer::tokenize	/home/dchanana/Projects/leaf/src/lexer.h	/^		void tokenize(std::string[]);$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:(std::string[])
 Lexer::tokenize	/home/dchanana/Projects/leaf/src/tokenizer.cpp	/^void Lexer::tokenize(std::string input[])$/;"	f	class:Lexer	typeref:typename:void	signature:(std::string input[])
+NumberExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		NumberExprASTNode(double value) : value(value) {}$/;"	f	class:NumberExprASTNode	access:public	signature:(double value)
+NumberExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^class NumberExprASTNode : public ExprASTNode$/;"	c	inherits:ExprASTNode
+NumberExprASTNode::NumberExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		NumberExprASTNode(double value) : value(value) {}$/;"	f	class:NumberExprASTNode	access:public	signature:(double value)
+NumberExprASTNode::value	/home/dchanana/Projects/leaf/src/AST.h	/^		double value;$/;"	m	class:NumberExprASTNode	typeref:typename:double	access:private
+OperationExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		OperationExprASTNode(char op, std::unique_ptr<ExprASTNode> RHS, std::unique_ptr<ExprASTNode> L/;"	f	class:OperationExprASTNode	access:public	signature:(char op,std::unique_ptr<ExprASTNode> RHS,std::unique_ptr<ExprASTNode> LHS)
+OperationExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^class OperationExprASTNode : public ExprASTNode$/;"	c	inherits:ExprASTNode
+OperationExprASTNode::OperationExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		OperationExprASTNode(char op, std::unique_ptr<ExprASTNode> RHS, std::unique_ptr<ExprASTNode> L/;"	f	class:OperationExprASTNode	access:public	signature:(char op,std::unique_ptr<ExprASTNode> RHS,std::unique_ptr<ExprASTNode> LHS)
+OperationExprASTNode::op	/home/dchanana/Projects/leaf/src/AST.h	/^		char op;$/;"	m	class:OperationExprASTNode	typeref:typename:char	access:private
+StringExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		StringExprASTNode(std::string value) : value(value) {};$/;"	f	class:StringExprASTNode	access:public	signature:(std::string value)
+StringExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^class StringExprASTNode : public ExprASTNode$/;"	c	inherits:ExprASTNode
+StringExprASTNode::StringExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		StringExprASTNode(std::string value) : value(value) {};$/;"	f	class:StringExprASTNode	access:public	signature:(std::string value)
+StringExprASTNode::value	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string value;$/;"	m	class:StringExprASTNode	typeref:typename:std::string	access:private
 Token	/home/dchanana/Projects/leaf/src/token.h	/^struct Token$/;"	s
 Token	/home/dchanana/Projects/leaf/src/tokenizer.h	/^struct Token$/;"	s
 Token::data	/home/dchanana/Projects/leaf/src/token.h	/^	std::string data;$/;"	m	struct:Token	typeref:typename:std::string	access:public
@@ -37,14 +68,36 @@ TokenType	/home/dchanana/Projects/leaf/src/token.h	/^enum TokenType$/;"	g
 TokenType	/home/dchanana/Projects/leaf/src/tokenizer.h	/^enum TokenType$/;"	g
 TokenWhitespace	/home/dchanana/Projects/leaf/src/token.h	/^	TokenWhitespace,$/;"	e	enum:TokenType	access:public
 TokenWhitespace	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	TokenWhitespace,$/;"	e	enum:TokenType	access:public
+VariableDefASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		VariableDefASTNode(std::string name, std::unique_ptr<ExprASTNode> value) : name(name) {childre/;"	f	class:VariableDefASTNode	access:public	signature:(std::string name,std::unique_ptr<ExprASTNode> value)
+VariableDefASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^class VariableDefASTNode : ASTNode$/;"	c	inherits:ASTNode
+VariableDefASTNode::VariableDefASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		VariableDefASTNode(std::string name, std::unique_ptr<ExprASTNode> value) : name(name) {childre/;"	f	class:VariableDefASTNode	access:public	signature:(std::string name,std::unique_ptr<ExprASTNode> value)
+VariableDefASTNode::name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string name;$/;"	m	class:VariableDefASTNode	typeref:typename:std::string	access:private
+VariableExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		VariableExprASTNode(std::string name) : name(name) {}$/;"	f	class:VariableExprASTNode	access:public	signature:(std::string name)
+VariableExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^class VariableExprASTNode : public ExprASTNode$/;"	c	inherits:ExprASTNode
+VariableExprASTNode::VariableExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		VariableExprASTNode(std::string name) : name(name) {}$/;"	f	class:VariableExprASTNode	access:public	signature:(std::string name)
+VariableExprASTNode::name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string name;$/;"	m	class:VariableExprASTNode	typeref:typename:std::string	access:private
+addChild	/home/dchanana/Projects/leaf/src/AST.h	/^		void addChild(std::unique_ptr<ASTNode> child) {children.push_back(std::move(child));}$/;"	f	class:ASTNode	typeref:typename:void	access:public	signature:(std::unique_ptr<ASTNode> child)
+children	/home/dchanana/Projects/leaf/src/AST.h	/^		std::vector<std::unique_ptr<ASTNode>> children;$/;"	m	class:ASTNode	typeref:typename:std::vector<std::unique_ptr<ASTNode>>	access:protected
+constructAST	/home/dchanana/Projects/leaf/src/lexer.h	/^		void constructAST();$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:()
 createToken	/home/dchanana/Projects/leaf/src/token.h	/^Token createToken(TokenType, std::string);$/;"	p	typeref:typename:Token	signature:(TokenType,std::string)
 createToken	/home/dchanana/Projects/leaf/src/tokenizer.cpp	/^Token createToken(TokenType type, std::string data)$/;"	f	typeref:typename:Token	signature:(TokenType type,std::string data)
 data	/home/dchanana/Projects/leaf/src/token.h	/^	std::string data;$/;"	m	struct:Token	typeref:typename:std::string	access:public
 end_pos	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	size_t end_pos;$/;"	m	struct:Token	typeref:typename:size_t	access:public
 line	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	size_t line;$/;"	m	struct:Token	typeref:typename:size_t	access:public
 main	/home/dchanana/Projects/leaf/src/tokenizer.cpp	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int	signature:(int argc,char * argv[])
+name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string name;$/;"	m	class:CallExprASTNode	typeref:typename:std::string	access:private
+name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string name;$/;"	m	class:FunctionDefASTNode	typeref:typename:std::string	access:private
+name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string name;$/;"	m	class:VariableDefASTNode	typeref:typename:std::string	access:private
+name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string name;$/;"	m	class:VariableExprASTNode	typeref:typename:std::string	access:private
+op	/home/dchanana/Projects/leaf/src/AST.h	/^		char op;$/;"	m	class:OperationExprASTNode	typeref:typename:char	access:private
+root	/home/dchanana/Projects/leaf/src/lexer.h	/^		std::unique_ptr<ASTNode> root;$/;"	m	class:Lexer	typeref:typename:std::unique_ptr<ASTNode>	access:public
+setChildren	/home/dchanana/Projects/leaf/src/AST.h	/^		void setChildren(std::vector<std::unique_ptr<ASTNode>> newChildren) {children = std::move(newC/;"	f	class:ASTNode	typeref:typename:void	access:public	signature:(std::vector<std::unique_ptr<ASTNode>> newChildren)
 start_pos	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	size_t start_pos;$/;"	m	struct:Token	typeref:typename:size_t	access:public
 tokenize	/home/dchanana/Projects/leaf/src/lexer.h	/^		void tokenize(std::string[]);$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:(std::string[])
 tokenize	/home/dchanana/Projects/leaf/src/tokenizer.cpp	/^void Lexer::tokenize(std::string input[])$/;"	f	class:Lexer	typeref:typename:void	signature:(std::string input[])
 type	/home/dchanana/Projects/leaf/src/token.h	/^	TokenType type;$/;"	m	struct:Token	typeref:typename:TokenType	access:public
 type	/home/dchanana/Projects/leaf/src/tokenizer.h	/^	TokenType type;$/;"	m	struct:Token	typeref:typename:TokenType	access:public
+value	/home/dchanana/Projects/leaf/src/AST.h	/^		double value;$/;"	m	class:NumberExprASTNode	typeref:typename:double	access:private
+value	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string value;$/;"	m	class:StringExprASTNode	typeref:typename:std::string	access:private
+~ASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		virtual ~ASTNode() {}$/;"	f	class:ASTNode	access:public	signature:()
+~ExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		virtual ~ExprASTNode() {}$/;"	f	class:ExprASTNode	access:public	signature:()
