@@ -1,1 +1,1 @@
-/usr/bin/c++    -rdynamic CMakeFiles/lcc.dir/src/constructAST.cpp.o CMakeFiles/lcc.dir/src/tokenizer.cpp.o  -o lcc 
+/usr/bin/c++    -rdynamic CMakeFiles/lcc.dir/src/lexer.cpp.o  -o lcc 

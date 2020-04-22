@@ -1,29 +1,30 @@
+#include <cctype>
+#include <fstream>
+#include <iostream>
+#include <memory>
+#include <string>
 #include "lexer.h"
 #include "AST.h"
-#include <cctype>
-#include <iostream>
-#include <string>
 
-void Lexer::tokenize(std::string input[])
+void Lexer::tokenize()
 {
+	std::ifstream file("test"); 
 	size_t start_pos;
 	size_t end_pos;
-	size_t lineNumber;
+	size_t lineNumber = 0;
 	TokenType type;
 
 	bool tokenDefined = false;
-	Token currentToken;
 	TokenType currentType = TokenIdentifier;
 
-	for(int lineIndex = 0; input[lineIndex] != "\0"; lineIndex++)
+	std::string line;
+	while (getline(file, line))
 	{
-		std::string line = input[lineIndex];
 		start_pos = 0;
 		for (int charIndex = 0; charIndex <= line.length(); charIndex++) 
 		{
 			type = currentType;
 			end_pos = charIndex;
-			lineNumber = lineIndex;
 			tokenDefined = true;
 			
 			char currentChar = line[charIndex];
@@ -50,28 +51,48 @@ void Lexer::tokenize(std::string input[])
 			}
 
 			if(type != currentType) {
-				currentToken = createToken(type, line.substr(start_pos, end_pos - start_pos));
+				createToken(type, line.substr(start_pos, end_pos - start_pos), lineNumber, start_pos);
 				start_pos = charIndex;
 			}
 		}
-		currentToken = createToken(type, line.substr(start_pos, end_pos - start_pos));
-		TokenList.push(currentToken);
+		lineNumber++;
 	}
 }
 
-Token createToken(TokenType type, std::string data)
+void Lexer::createToken(TokenType type, std::string data, size_t line, size_t pos)
 {
-	Token tok{type, data};
-	return tok;
+	TokenList.push_back({type, data, line, pos});
+}
+
+void Lexer::logCompileError(Token token)
+{
+	std::cout << "Syntax Error at " << token.line << "," << token.pos << ": " << token.data << std::endl;
 }
 
 void Lexer::constructAST()
 {
-	
+	Token currentToken;
+	std::unique_ptr<ASTNode> node;
+	size_t block = 0;
+	for(int i = 0; i < TokenList.size(); ++i) 
+	{
+		currentToken = TokenList[i];
+		switch (currentToken.type) 
+		{
+			case TokenNumberLiteral:
+				node = std::make_unique<NumberExprASTNode>(stod(currentToken.data));
+				break;
+
+			default:
+				logCompileError(currentToken);
+		}
+	}
 }
 
 int main(int argc, char *argv[])
 {
-	ASTNode ast;
+	Lexer lex("test");
+	lex.tokenize();
+	lex.constructAST();
 	return 0;
 }

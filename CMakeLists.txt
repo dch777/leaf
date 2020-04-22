@@ -4,4 +4,4 @@ project(Leaf)
 file(GLOB SOURCES 
 	"src/*")
 
-add_executable(lcc ${SOURCES})
+add_executable(leaf ${SOURCES})

@@ -19,10 +19,14 @@ fstream
 -
 iostream
 -
+memory
+-
 string
 -
 lexer.h
 /home/dchanana/Projects/leaf/src/lexer.h
+AST.h
+/home/dchanana/Projects/leaf/src/AST.h
 
 /home/dchanana/Projects/leaf/src/lexer.h
 fstream
@@ -33,7 +37,7 @@ string
 -
 stack
 -
-vector
+set
 -
 token.h
 /home/dchanana/Projects/leaf/src/token.h

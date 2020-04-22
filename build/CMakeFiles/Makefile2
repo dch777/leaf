@@ -73,7 +73,7 @@ CMAKE_BINARY_DIR = /home/dchanana/Projects/leaf/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/lcc.dir/all
+all: CMakeFiles/leaf.dir/all
 
 .PHONY : all
 
@@ -83,36 +83,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/lcc.dir/clean
+clean: CMakeFiles/leaf.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/lcc.dir
+# Target rules for target CMakeFiles/leaf.dir
 
 # All Build rule for target.
-CMakeFiles/lcc.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dchanana/Projects/leaf/build/CMakeFiles --progress-num=1,2,3 "Built target lcc"
-.PHONY : CMakeFiles/lcc.dir/all
+CMakeFiles/leaf.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leaf.dir/build.make CMakeFiles/leaf.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leaf.dir/build.make CMakeFiles/leaf.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dchanana/Projects/leaf/build/CMakeFiles --progress-num=1,2 "Built target leaf"
+.PHONY : CMakeFiles/leaf.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/lcc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dchanana/Projects/leaf/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/lcc.dir/all
+CMakeFiles/leaf.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dchanana/Projects/leaf/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/leaf.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dchanana/Projects/leaf/build/CMakeFiles 0
-.PHONY : CMakeFiles/lcc.dir/rule
+.PHONY : CMakeFiles/leaf.dir/rule
 
 # Convenience name for target.
-lcc: CMakeFiles/lcc.dir/rule
+leaf: CMakeFiles/leaf.dir/rule
 
-.PHONY : lcc
+.PHONY : leaf
 
 # clean rule for target.
-CMakeFiles/lcc.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/clean
-.PHONY : CMakeFiles/lcc.dir/clean
+CMakeFiles/leaf.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leaf.dir/build.make CMakeFiles/leaf.dir/clean
+.PHONY : CMakeFiles/leaf.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

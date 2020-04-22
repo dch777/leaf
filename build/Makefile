@@ -131,71 +131,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named lcc
+# Target rules for targets named leaf
 
 # Build rule for target.
-lcc: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lcc
-.PHONY : lcc
+leaf: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 leaf
+.PHONY : leaf
 
 # fast build rule for target.
-lcc/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/build
-.PHONY : lcc/fast
+leaf/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leaf.dir/build.make CMakeFiles/leaf.dir/build
+.PHONY : leaf/fast
 
-src/constructAST.o: src/constructAST.cpp.o
+src/lexer.o: src/lexer.cpp.o
 
-.PHONY : src/constructAST.o
-
-# target to build an object file
-src/constructAST.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/constructAST.cpp.o
-.PHONY : src/constructAST.cpp.o
-
-src/constructAST.i: src/constructAST.cpp.i
-
-.PHONY : src/constructAST.i
-
-# target to preprocess a source file
-src/constructAST.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/constructAST.cpp.i
-.PHONY : src/constructAST.cpp.i
-
-src/constructAST.s: src/constructAST.cpp.s
-
-.PHONY : src/constructAST.s
-
-# target to generate assembly for a file
-src/constructAST.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/constructAST.cpp.s
-.PHONY : src/constructAST.cpp.s
-
-src/tokenizer.o: src/tokenizer.cpp.o
-
-.PHONY : src/tokenizer.o
+.PHONY : src/lexer.o
 
 # target to build an object file
-src/tokenizer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/tokenizer.cpp.o
-.PHONY : src/tokenizer.cpp.o
+src/lexer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leaf.dir/build.make CMakeFiles/leaf.dir/src/lexer.cpp.o
+.PHONY : src/lexer.cpp.o
 
-src/tokenizer.i: src/tokenizer.cpp.i
+src/lexer.i: src/lexer.cpp.i
 
-.PHONY : src/tokenizer.i
+.PHONY : src/lexer.i
 
 # target to preprocess a source file
-src/tokenizer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/tokenizer.cpp.i
-.PHONY : src/tokenizer.cpp.i
+src/lexer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leaf.dir/build.make CMakeFiles/leaf.dir/src/lexer.cpp.i
+.PHONY : src/lexer.cpp.i
 
-src/tokenizer.s: src/tokenizer.cpp.s
+src/lexer.s: src/lexer.cpp.s
 
-.PHONY : src/tokenizer.s
+.PHONY : src/lexer.s
 
 # target to generate assembly for a file
-src/tokenizer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lcc.dir/build.make CMakeFiles/lcc.dir/src/tokenizer.cpp.s
-.PHONY : src/tokenizer.cpp.s
+src/lexer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leaf.dir/build.make CMakeFiles/leaf.dir/src/lexer.cpp.s
+.PHONY : src/lexer.cpp.s
 
 # Help Target
 help:
@@ -205,13 +178,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... lcc"
-	@echo "... src/constructAST.o"
-	@echo "... src/constructAST.i"
-	@echo "... src/constructAST.s"
-	@echo "... src/tokenizer.o"
-	@echo "... src/tokenizer.i"
-	@echo "... src/tokenizer.s"
+	@echo "... leaf"
+	@echo "... src/lexer.o"
+	@echo "... src/lexer.i"
+	@echo "... src/lexer.s"
 .PHONY : help
 
 

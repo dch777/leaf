@@ -9,7 +9,7 @@
 ASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^class ASTNode$/;"	c
 ASTNode::addChild	/home/dchanana/Projects/leaf/src/AST.h	/^		void addChild(NodePtr child) {children.push_back(std::move(child));}$/;"	f	class:ASTNode	typeref:typename:void	access:public	signature:(NodePtr child)
 ASTNode::children	/home/dchanana/Projects/leaf/src/AST.h	/^		std::vector<NodePtr> children;$/;"	m	class:ASTNode	typeref:typename:std::vector<NodePtr>	access:protected
-ASTNode::getChildren	/home/dchanana/Projects/leaf/src/AST.h	/^		std::vector<NodePtr> getChildren() {return children;}$/;"	f	class:ASTNode	typeref:typename:std::vector<NodePtr>	access:public	signature:()
+ASTNode::getChildren	/home/dchanana/Projects/leaf/src/AST.h	/^		std::vector<NodePtr> getChildren() {return std::move(children);}$/;"	f	class:ASTNode	typeref:typename:std::vector<NodePtr>	access:public	signature:()
 ASTNode::setChildren	/home/dchanana/Projects/leaf/src/AST.h	/^		void setChildren(std::vector<NodePtr> newChildren) {children = std::move(newChildren);}$/;"	f	class:ASTNode	typeref:typename:void	access:public	signature:(std::vector<NodePtr> newChildren)
 ASTNode::~ASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		virtual ~ASTNode() {}$/;"	f	class:ASTNode	access:public	signature:()
 CallExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		CallExprASTNode(std::string name, std::vector<NodePtr> args) : name(name) {setChildren(std::mo/;"	f	class:CallExprASTNode	access:public	signature:(std::string name,std::vector<NodePtr> args)
@@ -22,9 +22,21 @@ FunctionDefASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		FunctionDefASTNode
 FunctionDefASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^class FunctionDefASTNode : ASTNode$/;"	c	inherits:ASTNode
 FunctionDefASTNode::FunctionDefASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		FunctionDefASTNode(std::string name, std::vector<NodePtr> operations) : name(name) {setChildre/;"	f	class:FunctionDefASTNode	access:public	signature:(std::string name,std::vector<NodePtr> operations)
 FunctionDefASTNode::name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string name;$/;"	m	class:FunctionDefASTNode	typeref:typename:std::string	access:private
+Lexer	/home/dchanana/Projects/leaf/src/lexer.h	/^		Lexer(std::string file) : file(file) {}$/;"	f	class:Lexer	access:public	signature:(std::string file)
+Lexer	/home/dchanana/Projects/leaf/src/lexer.h	/^class Lexer$/;"	c
+Lexer::Lexer	/home/dchanana/Projects/leaf/src/lexer.h	/^		Lexer(std::string file) : file(file) {}$/;"	f	class:Lexer	access:public	signature:(std::string file)
+Lexer::TokenList	/home/dchanana/Projects/leaf/src/lexer.h	/^		std::vector<Token> TokenList;$/;"	m	class:Lexer	typeref:typename:std::vector<Token>	access:public
 Lexer::constructAST	/home/dchanana/Projects/leaf/src/lexer.cpp	/^void Lexer::constructAST()$/;"	f	class:Lexer	typeref:typename:void	signature:()
+Lexer::constructAST	/home/dchanana/Projects/leaf/src/lexer.h	/^		void constructAST();$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:()
+Lexer::createToken	/home/dchanana/Projects/leaf/src/lexer.cpp	/^void Lexer::createToken(TokenType type, std::string data, size_t line, size_t pos)$/;"	f	class:Lexer	typeref:typename:void	signature:(TokenType type,std::string data,size_t line,size_t pos)
+Lexer::createToken	/home/dchanana/Projects/leaf/src/lexer.h	/^		void createToken(TokenType type, std::string data, size_t line, size_t pos);$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:(TokenType type,std::string data,size_t line,size_t pos)
+Lexer::file	/home/dchanana/Projects/leaf/src/lexer.h	/^		std::ifstream file;$/;"	m	class:Lexer	typeref:typename:std::ifstream	access:public
+Lexer::logCompileError	/home/dchanana/Projects/leaf/src/lexer.cpp	/^void Lexer::logCompileError(Token token)$/;"	f	class:Lexer	typeref:typename:void	signature:(Token token)
+Lexer::logCompileError	/home/dchanana/Projects/leaf/src/lexer.h	/^		void logCompileError(Token token);$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:(Token token)
+Lexer::root	/home/dchanana/Projects/leaf/src/lexer.h	/^		ASTNode root;$/;"	m	class:Lexer	typeref:typename:ASTNode	access:public
 Lexer::tokenize	/home/dchanana/Projects/leaf/src/constructAST.cpp	/^void Lexer::tokenize(std::string input[])$/;"	f	class:Lexer	typeref:typename:void	signature:(std::string input[])
-Lexer::tokenize	/home/dchanana/Projects/leaf/src/lexer.cpp	/^void Lexer::tokenize(std::string input[])$/;"	f	class:Lexer	typeref:typename:void	signature:(std::string input[])
+Lexer::tokenize	/home/dchanana/Projects/leaf/src/lexer.cpp	/^void Lexer::tokenize()$/;"	f	class:Lexer	typeref:typename:void	signature:()
+Lexer::tokenize	/home/dchanana/Projects/leaf/src/lexer.h	/^		void tokenize();$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:()
 Lexer::tokenize	/home/dchanana/Projects/leaf/src/tokenizer.cpp	/^void Lexer::tokenize(std::string input[])$/;"	f	class:Lexer	typeref:typename:void	signature:(std::string input[])
 NodePtr	/home/dchanana/Projects/leaf/src/AST.h	/^typedef std::unique_ptr<ASTNode> NodePtr;$/;"	t	typeref:typename:std::unique_ptr<ASTNode>
 NumberExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		NumberExprASTNode(double value) : value(value) {}$/;"	f	class:NumberExprASTNode	access:public	signature:(double value)
@@ -41,15 +53,18 @@ StringExprASTNode::StringExprASTNode	/home/dchanana/Projects/leaf/src/AST.h	/^		
 StringExprASTNode::value	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string value;$/;"	m	class:StringExprASTNode	typeref:typename:std::string	access:private
 Token	/home/dchanana/Projects/leaf/src/token.h	/^struct Token$/;"	s
 Token::data	/home/dchanana/Projects/leaf/src/token.h	/^	std::string data;$/;"	m	struct:Token	typeref:typename:std::string	access:public
+Token::line	/home/dchanana/Projects/leaf/src/token.h	/^	size_t line;$/;"	m	struct:Token	typeref:typename:size_t	access:public
+Token::pos	/home/dchanana/Projects/leaf/src/token.h	/^	size_t pos;$/;"	m	struct:Token	typeref:typename:size_t	access:public
 Token::type	/home/dchanana/Projects/leaf/src/token.h	/^	TokenType type;$/;"	m	struct:Token	typeref:typename:TokenType	access:public
 TokenCloseExpressionBlock	/home/dchanana/Projects/leaf/src/token.h	/^	TokenCloseExpressionBlock,$/;"	e	enum:TokenType	access:public
 TokenCloseParameterBlock	/home/dchanana/Projects/leaf/src/token.h	/^	TokenCloseParameterBlock,$/;"	e	enum:TokenType	access:public
-TokenFunctionDefinition	/home/dchanana/Projects/leaf/src/token.h	/^	TokenFunctionDefinition,$/;"	e	enum:TokenType	access:public
 TokenIdentifier	/home/dchanana/Projects/leaf/src/token.h	/^	TokenIdentifier,$/;"	e	enum:TokenType	access:public
+TokenList	/home/dchanana/Projects/leaf/src/lexer.h	/^		std::vector<Token> TokenList;$/;"	m	class:Lexer	typeref:typename:std::vector<Token>	access:public
 TokenNumberLiteral	/home/dchanana/Projects/leaf/src/token.h	/^	TokenNumberLiteral,$/;"	e	enum:TokenType	access:public
 TokenOpenExpressionBlock	/home/dchanana/Projects/leaf/src/token.h	/^	TokenOpenExpressionBlock,$/;"	e	enum:TokenType	access:public
 TokenOpenParameterBlock	/home/dchanana/Projects/leaf/src/token.h	/^	TokenOpenParameterBlock,$/;"	e	enum:TokenType	access:public
-TokenStringLiteral	/home/dchanana/Projects/leaf/src/token.h	/^	TokenStringLiteral,$/;"	e	enum:TokenType	access:public
+TokenQuote	/home/dchanana/Projects/leaf/src/token.h	/^	TokenQuote,$/;"	e	enum:TokenType	access:public
+TokenSymbol	/home/dchanana/Projects/leaf/src/token.h	/^	TokenSymbol,$/;"	e	enum:TokenType	access:public
 TokenTerminateExpression	/home/dchanana/Projects/leaf/src/token.h	/^	TokenTerminateExpression,$/;"	e	enum:TokenType	access:public
 TokenType	/home/dchanana/Projects/leaf/src/token.h	/^enum TokenType$/;"	g
 TokenWhitespace	/home/dchanana/Projects/leaf/src/token.h	/^	TokenWhitespace,$/;"	e	enum:TokenType	access:public
@@ -64,12 +79,17 @@ VariableExprASTNode::name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string
 addChild	/home/dchanana/Projects/leaf/src/AST.h	/^		void addChild(NodePtr child) {children.push_back(std::move(child));}$/;"	f	class:ASTNode	typeref:typename:void	access:public	signature:(NodePtr child)
 children	/home/dchanana/Projects/leaf/src/AST.h	/^		std::vector<NodePtr> children;$/;"	m	class:ASTNode	typeref:typename:std::vector<NodePtr>	access:protected
 constructAST	/home/dchanana/Projects/leaf/src/lexer.cpp	/^void Lexer::constructAST()$/;"	f	class:Lexer	typeref:typename:void	signature:()
+constructAST	/home/dchanana/Projects/leaf/src/lexer.h	/^		void constructAST();$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:()
 createToken	/home/dchanana/Projects/leaf/src/constructAST.cpp	/^Token createToken(TokenType type, std::string data)$/;"	f	typeref:typename:Token	signature:(TokenType type,std::string data)
-createToken	/home/dchanana/Projects/leaf/src/lexer.cpp	/^Token createToken(TokenType type, std::string data)$/;"	f	typeref:typename:Token	signature:(TokenType type,std::string data)
-createToken	/home/dchanana/Projects/leaf/src/token.h	/^Token createToken(TokenType, std::string);$/;"	p	typeref:typename:Token	signature:(TokenType,std::string)
+createToken	/home/dchanana/Projects/leaf/src/lexer.cpp	/^void Lexer::createToken(TokenType type, std::string data, size_t line, size_t pos)$/;"	f	class:Lexer	typeref:typename:void	signature:(TokenType type,std::string data,size_t line,size_t pos)
+createToken	/home/dchanana/Projects/leaf/src/lexer.h	/^		void createToken(TokenType type, std::string data, size_t line, size_t pos);$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:(TokenType type,std::string data,size_t line,size_t pos)
 createToken	/home/dchanana/Projects/leaf/src/tokenizer.cpp	/^Token createToken(TokenType type, std::string data)$/;"	f	typeref:typename:Token	signature:(TokenType type,std::string data)
 data	/home/dchanana/Projects/leaf/src/token.h	/^	std::string data;$/;"	m	struct:Token	typeref:typename:std::string	access:public
-getChildren	/home/dchanana/Projects/leaf/src/AST.h	/^		std::vector<NodePtr> getChildren() {return children;}$/;"	f	class:ASTNode	typeref:typename:std::vector<NodePtr>	access:public	signature:()
+file	/home/dchanana/Projects/leaf/src/lexer.h	/^		std::ifstream file;$/;"	m	class:Lexer	typeref:typename:std::ifstream	access:public
+getChildren	/home/dchanana/Projects/leaf/src/AST.h	/^		std::vector<NodePtr> getChildren() {return std::move(children);}$/;"	f	class:ASTNode	typeref:typename:std::vector<NodePtr>	access:public	signature:()
+line	/home/dchanana/Projects/leaf/src/token.h	/^	size_t line;$/;"	m	struct:Token	typeref:typename:size_t	access:public
+logCompileError	/home/dchanana/Projects/leaf/src/lexer.cpp	/^void Lexer::logCompileError(Token token)$/;"	f	class:Lexer	typeref:typename:void	signature:(Token token)
+logCompileError	/home/dchanana/Projects/leaf/src/lexer.h	/^		void logCompileError(Token token);$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:(Token token)
 main	/home/dchanana/Projects/leaf/src/constructAST.cpp	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int	signature:(int argc,char * argv[])
 main	/home/dchanana/Projects/leaf/src/lexer.cpp	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int	signature:(int argc,char * argv[])
 main	/home/dchanana/Projects/leaf/src/tokenizer.cpp	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int	signature:(int argc,char * argv[])
@@ -78,9 +98,12 @@ name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string name;$/;"	m	class:Fu
 name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string name;$/;"	m	class:VariableDefASTNode	typeref:typename:std::string	access:private
 name	/home/dchanana/Projects/leaf/src/AST.h	/^		std::string name;$/;"	m	class:VariableExprASTNode	typeref:typename:std::string	access:private
 op	/home/dchanana/Projects/leaf/src/AST.h	/^		char op;$/;"	m	class:OperationExprASTNode	typeref:typename:char	access:private
+pos	/home/dchanana/Projects/leaf/src/token.h	/^	size_t pos;$/;"	m	struct:Token	typeref:typename:size_t	access:public
+root	/home/dchanana/Projects/leaf/src/lexer.h	/^		ASTNode root;$/;"	m	class:Lexer	typeref:typename:ASTNode	access:public
 setChildren	/home/dchanana/Projects/leaf/src/AST.h	/^		void setChildren(std::vector<NodePtr> newChildren) {children = std::move(newChildren);}$/;"	f	class:ASTNode	typeref:typename:void	access:public	signature:(std::vector<NodePtr> newChildren)
 tokenize	/home/dchanana/Projects/leaf/src/constructAST.cpp	/^void Lexer::tokenize(std::string input[])$/;"	f	class:Lexer	typeref:typename:void	signature:(std::string input[])
-tokenize	/home/dchanana/Projects/leaf/src/lexer.cpp	/^void Lexer::tokenize(std::string input[])$/;"	f	class:Lexer	typeref:typename:void	signature:(std::string input[])
+tokenize	/home/dchanana/Projects/leaf/src/lexer.cpp	/^void Lexer::tokenize()$/;"	f	class:Lexer	typeref:typename:void	signature:()
+tokenize	/home/dchanana/Projects/leaf/src/lexer.h	/^		void tokenize();$/;"	p	class:Lexer	typeref:typename:void	access:public	signature:()
 tokenize	/home/dchanana/Projects/leaf/src/tokenizer.cpp	/^void Lexer::tokenize(std::string input[])$/;"	f	class:Lexer	typeref:typename:void	signature:(std::string input[])
 type	/home/dchanana/Projects/leaf/src/token.h	/^	TokenType type;$/;"	m	struct:Token	typeref:typename:TokenType	access:public
 value	/home/dchanana/Projects/leaf/src/AST.h	/^		double value;$/;"	m	class:NumberExprASTNode	typeref:typename:double	access:private

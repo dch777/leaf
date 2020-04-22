@@ -12,7 +12,7 @@ class ASTNode
 		virtual ~ASTNode() {}
 		void addChild(NodePtr child) {children.push_back(std::move(child));}
 		void setChildren(std::vector<NodePtr> newChildren) {children = std::move(newChildren);}
-		std::vector<NodePtr> getChildren() {return children;}
+		std::vector<NodePtr> getChildren() {return std::move(children);}
 	protected:
 		std::vector<NodePtr> children;
 };

@@ -21,7 +21,6 @@ struct Token
 {
 	TokenType type;
 	std::string data;
+	size_t line;
+	size_t pos;
 };
-
-Token createToken(TokenType, std::string);
-

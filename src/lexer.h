@@ -1,19 +1,25 @@
 #pragma once
 
+#include <fstream>
 #include <memory>
 #include <string>
 #include <stack>
+#include <set>
 #include "token.h"
 #include "AST.h"
 
 class Lexer
 {
 	public:
-		Lexer(std::string file) {}
+		Lexer(std::string file) : file(file) {}
+		std::ifstream file;
 
-		void tokenize(std::string[]);
-		std::stack<Token> TokenList;
+		void tokenize();
+		void createToken(TokenType type, std::string data, size_t line, size_t pos);
+		std::vector<Token> TokenList;
 
 		void constructAST();
-		std::unique_ptr<ASTNode> root;
+		ASTNode root;
+
+		void logCompileError(Token token);
 };

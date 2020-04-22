@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lcc.dir/src/constructAST.cpp.o"
-  "CMakeFiles/lcc.dir/src/tokenizer.cpp.o"
+  "CMakeFiles/lcc.dir/src/lexer.cpp.o"
   "lcc"
   "lcc.pdb"
 )
