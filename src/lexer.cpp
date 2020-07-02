@@ -1,8 +1,8 @@
 #include <cctype>
 #include <fstream>
 #include <iostream>
-#include <memory>
 #include <string>
+#include <memory>
 #include "lexer.h"
 #include "AST.h"
 
@@ -15,24 +15,25 @@ void Lexer::tokenize()
 	TokenType type;
 
 	bool tokenDefined = false;
-	TokenType currentType = TokenIdentifier;
+	TokenType currentType;
 
 	std::string line;
 	while (getline(file, line))
 	{
 		start_pos = 0;
-		for (int charIndex = 0; charIndex <= line.length(); charIndex++) 
+		for (size_t charIndex = 0; charIndex <= line.length(); charIndex++) 
 		{
 			type = currentType;
 			end_pos = charIndex;
 			tokenDefined = true;
 			
 			char currentChar = line[charIndex];
-			if(std::isalpha(currentChar)) {
-				currentType = TokenIdentifier;
-			} else if(std::isspace(currentChar) != 0) {
+			if(std::isblank(currentChar)) {
 				currentType = TokenWhitespace;
-			} else if(std::isdigit(currentChar) || (currentType == TokenNumberLiteral && currentChar == '.')) {
+			} else if(std::isalpha(currentChar) || (std::isdigit(currentChar) && currentType == TokenIdentifier)) {
+				currentType = TokenIdentifier;
+				std::cout << "test" << std::endl;
+			} else if(std::isdigit(currentChar)) {
 				currentType = TokenNumberLiteral;
 			} else if(currentChar == '"') {
 				currentType = TokenQuote;
@@ -50,9 +51,9 @@ void Lexer::tokenize()
 				currentType = TokenSymbol;
 			}
 
-			if(type != currentType) {
+			if(type != currentType && currentType == TokenWhitespace) {
 				createToken(type, line.substr(start_pos, end_pos - start_pos), lineNumber, start_pos);
-				start_pos = charIndex;
+				start_pos = charIndex + 1;
 			}
 		}
 		lineNumber++;
@@ -67,26 +68,49 @@ void Lexer::createToken(TokenType type, std::string data, size_t line, size_t po
 void Lexer::logCompileError(Token token)
 {
 	std::cout << "Syntax Error at " << token.line << "," << token.pos << ": " << token.data << std::endl;
+	std::cout << "\tToken type is " << token.type << std::endl;
 }
 
 void Lexer::constructAST()
 {
 	Token currentToken;
 	std::unique_ptr<ASTNode> node;
+	std::unique_ptr<ASTNode> parent;
 	size_t block = 0;
-	for(int i = 0; i < TokenList.size(); ++i) 
+	for(size_t i = 0; i < TokenList.size(); ++i) 
 	{
 		currentToken = TokenList[i];
-		switch (currentToken.type) 
+		switch(currentToken.type) 
 		{
 			case TokenNumberLiteral:
-				node = std::make_unique<NumberExprASTNode>(stod(currentToken.data));
+				break;
+
+			case TokenIdentifier:
+				std::cout << currentToken.data << std::endl;
 				break;
 
 			default:
 				logCompileError(currentToken);
 		}
 	}
+}
+
+std::unique_ptr<ASTNode> Lexer::ParseIdentifier(int* token)
+{
+	Token currentToken = TokenList[*token];
+	if(currentToken.data == "def")
+	{
+		
+	} else if(TokenList[*token + 1].type == TokenOpenParameterBlock) {
+		
+	} else {
+		return std::make_unique<VariableExprASTNode>(currentToken.data);
+	}
+}
+
+std::vector<NodePtr> Lexer::ParseParameterBlock(int* token)
+{
+	
 }
 
 int main(int argc, char *argv[])

@@ -19,6 +19,8 @@ class Lexer
 		std::vector<Token> TokenList;
 
 		void constructAST();
+		NodePtr ParseIdentifier(int* token);
+		std::vector<NodePtr> ParseParameterBlock(int* token);
 		ASTNode root;
 
 		void logCompileError(Token token);
